@@ -1,0 +1,8 @@
+target/
+.mvn/
+*.class
+*.jar
+.env
+application-prod.properties
+HELP.md
+.DS_Store
