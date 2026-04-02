@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 HELP.md
 target/
 .mvn/wrapper/maven-wrapper.jar
@@ -31,3 +32,13 @@ build/
 
 ### VS Code ###
 .vscode/
+=======
+target/
+.mvn/
+*.class
+*.jar
+.env
+application-prod.properties
+HELP.md
+.DS_Store
+>>>>>>> 228d240b7c9032e570c171cc6017922a6a42f4ee
