@@ -46,8 +46,8 @@ public class SecurityConfig {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowedOrigins(Arrays.asList(
         "http://localhost:5173",
-        "https://hr-frontend.vercel.app",
-        "https://*.vercel.app"           // allow all vercel previews
+        "http://localhost:3000",
+        "https://hr-frontend-ashen.vercel.app",
         ));
         config.setAllowedMethods(Arrays.asList("GET","POST","PUT","DELETE","OPTIONS"));
         config.setAllowedHeaders(Arrays.asList("*"));
