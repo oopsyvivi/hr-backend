@@ -47,7 +47,9 @@ public class SecurityConfig {
         config.setAllowedOrigins(Arrays.asList(
         "http://localhost:5173",
         "http://localhost:3000",
-        "https://hr-frontend-ashen.vercel.app"
+        "https://hr-frontend-ashen.vercel.app",
+        "https://hr-frontend-git-main-oopsyvivis-projects.vercel.app",
+        "https://hr-frontend-f71bqcpl8-oopsyvivis-projects.vercel.app"
         ));
         config.setAllowedMethods(Arrays.asList("GET","POST","PUT","DELETE","OPTIONS"));
         config.setAllowedHeaders(Arrays.asList("*"));
