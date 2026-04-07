@@ -20,23 +20,14 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(AbstractHttpConfigurer::disable)
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-            .sessionManagement(session ->
-                session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/**").permitAll()
-                .requestMatchers("/api/employees/**").permitAll()
-                .requestMatchers("/api/departments/**").permitAll()
-                .requestMatchers("/api/attendance/**").permitAll()
-                .requestMatchers("/api/shifts/**").permitAll()
-                .requestMatchers("/api/leave/**").permitAll()
-                .requestMatchers("/api/leave-types/**").permitAll()
-                .requestMatchers("/api/overtime/**").permitAll()
-                .requestMatchers("/api/payroll/**").permitAll()
-                .requestMatchers("/api/settings/**").permitAll()
-                .requestMatchers("/api/dashboard/**").permitAll()
+                .requestMatchers("/api/**").permitAll()  // ← allow ALL api routes
                 .anyRequest().authenticated()
+            )
+            .sessionManagement(session -> session
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             );
         return http.build();
     }
