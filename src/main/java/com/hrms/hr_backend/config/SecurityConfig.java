@@ -35,16 +35,11 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(Arrays.asList(
-        "http://localhost:5173",
-        "http://localhost:3000",
-        "https://hr-frontend-ashen.vercel.app",
-        "https://hr-frontend-git-main-oopsyvivis-projects.vercel.app",
-        "https://hr-frontend-f71bqcpl8-oopsyvivis-projects.vercel.app"
-        ));
-        config.setAllowedMethods(Arrays.asList("GET","POST","PUT","DELETE","OPTIONS"));
+        config.addAllowedOriginPattern("*");
+        config.setAllowedMethods(Arrays.asList("GET","POST","PUT","DELETE","OPTIONS","PATCH"));
         config.setAllowedHeaders(Arrays.asList("*"));
-        config.setAllowCredentials(true);
+        config.setAllowCredentials(false);
+        config.setMaxAge(3600L);
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);
         return source;

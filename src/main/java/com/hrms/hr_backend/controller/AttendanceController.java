@@ -14,12 +14,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/attendance")
-@CrossOrigin(origins = {
-    "https://localhost:5173",
-    "https://hr-frontend-ashen.vercel.app",
-    "https://hr-frontend.git-main-oopsyvivi-projects.vercel.app",
-    "https://hr-frontend-f71bqcpl8-oopsyvivis-projects.verccel.app"
-})
+@CrossOrigin(origins = "*")
 public class AttendanceController {
 
     @Autowired
