@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import java.time.LocalDateTime;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperrties;
 
 @Entity
 @Table(name = "payroll")
@@ -17,8 +18,9 @@ public class Payroll {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "employee_id", nullable = false)
+    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     private Employee employee;
 
     @Column(nullable = false)
@@ -89,7 +91,8 @@ public class Payroll {
     @Column
     private LocalDateTime paidAt;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "generated_by")
+    @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     private User generatedBy;
 }

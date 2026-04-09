@@ -21,7 +21,7 @@ public class ForgotRequest {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "employee_id", nullable = false)
     @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     private Employee employee;
@@ -47,7 +47,7 @@ public class ForgotRequest {
     @Column
     private LocalDateTime submittedAt;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "reviewed_by")
     @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
     private User reviewedBy;
